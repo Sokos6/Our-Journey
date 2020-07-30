@@ -7,7 +7,7 @@ function Header() {
     <nav className='Nav'>
       <div className='Nav-menus'>
         <div className='Nav-brand'>
-          <Link className='Nav-brand-logo' to='/'>
+          <Link to='/'>
             Our Journey
           </Link>
         </div>
