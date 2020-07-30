@@ -6,8 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Auth0Provider } from './auth/react-auth0-wrapper';
 import config from './auth/auth_config.json';
+import { configure } from '@testing-library/react';
 
-// Routes the user to the right place after login
+// A function that routes the user to the right place
+// after login
 const onRedirectCallback = (appState) => {
   window.history.replaceState(
     {},
@@ -24,7 +26,7 @@ ReactDOM.render(
       domain={config.domain}
       client_id={config.clientId}
       audience={config.audience}
-      redirect_uri={config.redirect_uri}
+      redirect_uri={configure.redirect_uri}
       onRedirectCallback={onRedirectCallback}
     >
       <App />
@@ -32,8 +34,4 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
